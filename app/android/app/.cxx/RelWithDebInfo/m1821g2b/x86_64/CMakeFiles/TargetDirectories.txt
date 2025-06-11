@@ -1,0 +1,2 @@
+/home/user/Dokumente/Master/HPI/Semester 4/Master Project/PharMe/app/android/app/.cxx/RelWithDebInfo/m1821g2b/x86_64/CMakeFiles/edit_cache.dir
+/home/user/Dokumente/Master/HPI/Semester 4/Master Project/PharMe/app/android/app/.cxx/RelWithDebInfo/m1821g2b/x86_64/CMakeFiles/rebuild_cache.dir
