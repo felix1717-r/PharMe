@@ -18,7 +18,9 @@ class CpicLab extends Lab {
   @override
   Future<(List<LabResult>, List<String>)> loadData() async {
     try {
-      final vcfType = XTypeGroup(label: 'VCF', extensions: ['vcf']);
+      final vcfType = XTypeGroup(
+        label: 'All Files',
+      );
       final XFile? picked = await openFile(acceptedTypeGroups: [vcfType]);
       if (picked == null) {
         // user cancelled
