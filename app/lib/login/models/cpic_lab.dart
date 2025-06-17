@@ -33,15 +33,12 @@ class CpicLab extends Lab {
       final phenotypeOutputPath = path.join(dir.path, 'phenotyper.json');
 
       // 3) Generate it
-      final (success, message) =
+      final (success, rawJson) =
           await Helper.processFile(vcfPath, phenotypeOutputPath);
       if (!success) {
-        debugPrint(' $message');
-        return (<LabResult>[], <String>[]);
+        throw LabAuthenticationError();
       }
-      debugPrint('Phenotype file written to $phenotypeOutputPath');
-
-      final raw = await File(phenotypeOutputPath).readAsString();
+      final raw = rawJson;
 
       final Map<String, dynamic> doc = json.decode(raw) as Map<String, dynamic>;
 
@@ -105,9 +102,7 @@ class CpicLab extends Lab {
 
       return (labData, <String>[]);
     } catch (e, stack) {
-      print('Error in loadData(): $e');
-      print(stack);
-      return (<LabResult>[], <String>[]);
+      throw LabAuthenticationError();
     }
   }
 }
